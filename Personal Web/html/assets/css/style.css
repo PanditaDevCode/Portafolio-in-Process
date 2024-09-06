@@ -6,9 +6,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
     text-decoration: none;
     list-style: none;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body::before {
@@ -23,6 +26,7 @@ body::before {
     background-size: cover;
     background-position: center;
     filter: brightness(8%);
+    transition: opacity 1s ease;
 }
 
 body {
@@ -30,30 +34,36 @@ body {
     background-color: #1e202d;
 }
 
+body.solid-background::before {
+    opacity: 0;
+}
+
+body.solid-background {
+    background-color: #1e202d;
+}
+
+.info-me {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+body.solid-background .info-me {
+    opacity: 0;
+}
+
 img {
     max-width: 1000px;
     z-index: 2;
 }
 
-/* Mouse Fount Neon */
 
-.light {
-    position: fixed;
-    width: 950px;
-    height: 950px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(14, 47, 90, 0.781) 0%, rgba(0, 0, 0, 0) 70%);
-    pointer-events: none;
-    mix-blend-mode: screen;
-    transition: transform 0.1s ease-out;
-    z-index: 1;
-    pointer-events: none;
-}
+
+
 
 /* Header and Navbar Content */
 
 .header {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -61,8 +71,8 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
     transition: .5s;
+    z-index: 1000;
 }
 
 header.abajo {
@@ -152,6 +162,125 @@ header.abajo {
             0 0 20px rgba(48, 120, 255, 0.4);
     }
 }
+
+
+
+
+
+/* Estilos del menú flotante */
+
+.menu-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.4s, transform 0.4s;
+    box-shadow: 0 0 10px rgba(26, 80, 161, 0.8),
+    0 0 20px rgba(103, 163, 253, 0.6),
+    0 0 30px rgba(101, 155, 255, 0.4);
+    background-color: #97c7ff;
+    border-radius: 100px;
+    animation: neon-img 1.5s infinite alternate;
+}
+
+.menu-icon {
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu-icon .bar1,
+.menu-icon .bar2,
+.menu-icon .bar3 {
+    width: 50%;
+    height: 5px;
+    background-color: #333;
+    margin: 5px 10px;
+    transition: 0.4s;
+    box-shadow: 0 0 10px rgba(26, 80, 161, 0.8),
+    0 0 20px rgba(103, 163, 253, 0.6),
+    0 0 30px rgba(101, 155, 255, 0.4);
+    border-radius: 10px;
+}
+
+.menu-icon.open .bar1 {
+    transform: rotate(-50deg) translate(-7px, 7px);
+}
+
+.menu-icon.open .bar2 {
+    opacity: 0;
+}
+
+.menu-icon.open .bar3 {
+    transform: rotate(45deg) translate(-6px, -8px);
+}
+
+.menu {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    width: 200px;
+    background-color: #000000cb;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+    transition: opacity 0.4s, transform 0.4s, visibility 0.4s;
+}
+
+.menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.menu a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    transition: background 0.3s;
+    text-shadow:
+        0 0 5px rgba(222, 228, 236, 0.8),
+        0 0 10px rgba(185, 196, 212, 0.6),
+        0 0 15px rgba(204, 216, 238, 0.4),
+        0 0 20px rgba(231, 237, 248, 0.4);
+    animation: neon-tittles 1.5s infinite alternate;
+    font-weight: 700;
+}
+
+.menu a:hover {
+    background-color: #575757;
+    border-radius: 15px;
+    color: #97c7ff;
+}
+
+
+
+
+
+/* Mouse Fount Neon */
+
+.light {
+    position: fixed;
+    width: 950px;
+    height: 950px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(14, 47, 90, 0.781) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+    transition: transform 0.1s ease-out;
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+
+
 
 /* Info Content */
 
@@ -284,7 +413,6 @@ header.abajo {
     margin-left: 30px;
     display: block;
     justify-content: space-around;
-    overflow: hidden;
     width: 700px;
     margin-top: 50px;
     text-shadow:
@@ -315,7 +443,7 @@ header.abajo {
         0 0 15px rgba(81, 139, 247, 0.4),
         0 0 20px rgba(48, 120, 255, 0.4);
     animation: neon-btn 2s infinite alternate;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease-out;
     border-radius: 5px;
     font-weight: 600;
 }
@@ -329,7 +457,7 @@ header.abajo {
         0 0 15px rgba(81, 139, 247, 0.4),
         0 0 20px rgba(48, 120, 255, 0.4);
     transform: scale(1.1);
-    transition: all .3s;
+    transition: all .5s;
 }
 
 #zoomButton.zoom {
@@ -362,6 +490,10 @@ header.abajo {
     }
 }
 
+
+
+
+
 /* AboutMe Section */
 
 .aboutMe {
@@ -372,7 +504,7 @@ header.abajo {
 .aboutMeInfo {
     float: right;
     margin-left: 200px;
-    margin-top: 130px;
+    margin-top: 150px;
 }
 
 .aboutMeInfo h1 {
@@ -404,7 +536,7 @@ header.abajo {
 
 .aboutMeInfo span {
     color: #97c7ff;
-} 
+}
 
 .aboutMeInfo h1,
 h2 {
@@ -418,7 +550,7 @@ h2 {
 }
 
 .aboutmeimg img {
-    margin-top: 100px;
+    margin-top: 120px;
     margin-left: -40px;
     float: left;
     width: 450px;
