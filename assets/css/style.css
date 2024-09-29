@@ -229,7 +229,7 @@ header.abajo {
     opacity: 0;
     transform: translateY(20px);
     visibility: hidden;
-    transition: opacity 0.4s, transform 0.4s, visibility 0.4s;
+    transition: opacity 0.5s, transform 0.6s, visibility 0.6s;
 }
 
 .menu.show {
@@ -729,34 +729,37 @@ h2 {
     transform: translateX(350px) scale(0.8) translateZ(0px);
 } 
 
-/* Oculta por defecto el título y el párrafo dentro de cada item del carrusel */
 
-.carousel-item h1,
-.carousel-item p {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease; 
+
+
+
+.carrusel-info {
+    background: #97c7ff;
+    width: 800;
+    height: 215px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-/* Muestra el título y el párrafo cuando el mouse está sobre el contenedor del carrusel */
-
-.carousel-item:hover h1,
-.carousel-item:hover p {
-    opacity: 1;
-    transform: translateY(0);
+.carrusel-info h1 {
+    font-size: 20px;
+    text-justify: left;
+    margin-left: 1px;
 }
 
-/* Opcional: ajustar los márgenes del texto para mejorar el espaciado */
-
-.carousel-item h1 {
-    margin: 0;
-    font-size: 24px; 
+.carrusel-info p {
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 15px;
 }
 
-.carousel-item p {
-    margin: 10px 0 0; 
-    font-size: 16px; 
-} 
+.carrusel-info button {
+    margin-left: -110px;
+    margin-bottom: 500px;
+}
+
+
+
 
 /* Animación, entrada desde arriba */
 
