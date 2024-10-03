@@ -147,24 +147,3 @@ const smoothScroll = (target, duration) => {
 
     requestAnimationFrame(animation);
 };
-
-// Smooth scroll al clicar enlaces en la propia web
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = anchor.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-            smoothScroll(targetElement, 1500); // Ajustar duración (1000ms = 1 segundo)
-        }
-    });
-});
-
-
-
-
-
-
-

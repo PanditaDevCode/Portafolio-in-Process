@@ -10,10 +10,6 @@
     list-style: none;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body::before {
     content: '';
     position: absolute;
@@ -151,7 +147,7 @@ header.abajo {
             0 0 10px rgba(173, 206, 255, 0.8),
             0 0 20px rgba(103, 163, 253, 0.6),
             0 0 30px rgba(81, 139, 247, 0.4),
-            0 0 40px rgba(48, 120, 255, 0.4);
+            0 0 40px rgba(55, 68, 94, 0.4);
     }
 
     100% {
