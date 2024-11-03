@@ -492,18 +492,18 @@ header.abajo {
 
 /* AboutMe Section */
 
-.aboutMe {
+.about_me {
     display: flex;
     padding: 220px 100px;
 }
 
-.aboutMeInfo {
+.about_me_info{
     float: right;
     margin-left: 200px;
     margin-top: 150px;
 }
 
-.aboutMeInfo h1 {
+.about_me_info h1 {
     padding: 30px 30px;
     font-size: 60px;
     font-weight: 800;
@@ -511,7 +511,7 @@ header.abajo {
     margin-left: -80px;
 }
 
-.aboutMeInfo h2 {
+.about_me_info h2 {
     font-size: 15px;
     text-align: right;
     margin-top: -45px;
@@ -519,7 +519,7 @@ header.abajo {
     color: #bbbbbb;
 }
 
-.aboutMeInfo p {
+.about_me_info p {
     float: right;
     text-align: right;
     margin-top: 15px;
@@ -530,11 +530,11 @@ header.abajo {
     margin-right: 30px;
 }
 
-.aboutMeInfo span {
+.about_me_info span {
     color: #97c7ff;
 }
 
-.aboutMeInfo h1,
+.about_me_info h1,
 h2 {
     text-shadow:
         0 0 5px rgba(222, 228, 236, 0.8),
